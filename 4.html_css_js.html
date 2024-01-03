@@ -29,13 +29,15 @@
         }
     </style>
     <script>
-        document.getElementById("load1").innerHTML="change1";
+        //document.getElementById("load1").innerHTML="change1";
 
-        
+        function updateDemo1() {
+            document.getElementById("demo1").innerHTML="변경된 p태그 내용";
+        }
     </script>
 </head>
 
-<body background="./images/um_good.jpeg">
+<body background="./images/back.png">
     <h2>html, css, js 통합 기본</h2>
     <!-- 인라인 스타일 적용 -->
     <p style="color: green; text-align: center; text-decoration: underline;">인라인 스타일 적용</p>
@@ -71,10 +73,13 @@
     <p id="load2">js 로드 순서 2</p>
     <script>
         document.getElementById("load2").innerHTML="change2";
+
     </script>
 
-    <p>변경될 p태그 내용</p>
+    <p id="demo1">변경될 p태그 내용</p>
+    <button onclick="updateDemo1()">내용 변경</button>
+    <p id="demo2">demo2 내용</p>
     <button onclick="updateDemo2()">내용 변경</button>
-
+    <script src="./js/my_js.js"></script>
 </body>
 </html>
