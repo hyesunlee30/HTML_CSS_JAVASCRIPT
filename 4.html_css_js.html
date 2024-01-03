@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="./css/my_style.css">
     <style>
         /* 태그 선택 */
-        p{
+        /* p{
             color: gray; text-align: right; text-decoration: overlines;
-        }
+        } */
         /* 클래스 선택 : . */
         .paras{
             color: blue; text-align: left; text-decoration:line-through;
@@ -19,8 +19,22 @@
         #para{
             text-align: center;
         }
+        /*자손 선택자*/
+        div p {
+            color : blue;
+        }
+        /*자식 선택자*/
+        div > h5 {
+            color:green;
+        }
     </style>
+    <script>
+        document.getElementById("load1").innerHTML="change1";
+
+        
+    </script>
 </head>
+
 <body background="./images/um_good.jpeg">
     <h2>html, css, js 통합 기본</h2>
     <!-- 인라인 스타일 적용 -->
@@ -40,13 +54,27 @@
     <div>
         <h2>자손선택자 예시</h2>
         <p>첫번째 단락</p>
-        <p>두번째 단락</p>
+        <section>
+            <p>두번째 단락</p>
+        </section>
     </div>
     <!--자식선택자-->
     <div>
         <h2>자식선택자 예시</h2>
         <h5>첫번째 단락</h5>
-        <h5>두번째 단락</h5>
+        <section>
+            <h5>두번째 단락</h5>
+        </section>
     </div>
+    <h2>javascript 예시</h2>
+    <p id="load1">js 로드 순서 1</p>
+    <p id="load2">js 로드 순서 2</p>
+    <script>
+        document.getElementById("load2").innerHTML="change2";
+    </script>
+
+    <p>변경될 p태그 내용</p>
+    <button onclick="updateDemo2()">내용 변경</button>
+
 </body>
 </html>
