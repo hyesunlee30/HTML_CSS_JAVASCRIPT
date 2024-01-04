@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js operator</title>
+    <script>
+        function showComparismEqual () {
+            let x = 3;
+            let y = '3';
+            document.getElementById("result").innerHTML=
+            "x==y 결과 "+(x == y)+" <br>"+
+            "x===y 결과 "+(x === y);
+        }
+        function showComparismString () {
+            let x = 'abc';
+            let y = 'bcd';
+            document.getElementById("result").innerHTML=
+            "abc <= bcd: "+(x<=y);
+        }
+        function showOperatorResult (a, b) {
+            var bigger = a> b? a: b;
+            document.getElementById("result").innerHTML= "a "+a+"와 b "+b+" 중에 더 큰 수는 "+ bigger+"이다";
+        }
+        
+        let showOperatorResult2 = (a, b) => {
+            var bigger = a> b? a: b;
+            document.getElementById("result").innerHTML= "a "+a+"와 b "+b+" 중에 더 큰 수는 "+ bigger+"이다";
+        }
+    </script>
+</head>
+<body>
+    <h2>js 연산자 예시</h2>
+    <button onclick="showComparismEqual()">Equal 연산자 결과</button>
+    <button onclick="showComparismString()">String 비교 연산자 결과</button>
+    <button onclick="showOperatorResult2(3,5)">삼항 연산자 결과</button>
+    <p id="result">결과</p>
+</body>
+</html>

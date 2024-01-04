@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js_intro</title>
+    <script>
+        function variableConsole1 () {
+            var x = 10;
+            var y = "10";
+
+            console.log(x+y);
+
+        }
+        function variableConsole2 () {
+            var arr = [10,"20",30,"40"];
+            var total = 0; 
+            var arr2 = [10,20,30,40];
+            arr2.push(50);
+            arr2.forEach((a)=> console.log(a));
+            for(i=0; i<arr2.length; i++) {
+                total += arr2[i];
+            }
+            //console로 출력
+            console.log("total : "+total);
+            //popup으로 출력 확인 누르기전까지 이후 코드 실행 X
+            alert("total : "+total);
+            //document
+            //document.write("total : "+total);
+        }
+        function variableConsole3() {
+            var arr = [10,20, (a,b)=>{console.log("hello world");}    
+            ];
+
+            arr[2]();
+        }
+        function varExample() {
+            //var는 같은 변수명에 재선언과 재할당이 가능 
+            var x = 10;
+            var x = 20;
+        }
+        function letExample() {
+            //let은 같은 변수명에 재할당만 가능
+            let x = 10;
+            x = 20;
+        }
+        function constExample() {
+            //const는 변수명에 재선언과 재할당 불가능
+            const x = 10;
+            x = 20;
+        }
+        function changeTextById() {
+            document.getElementById("change1").innerHTML="변경됨";
+            document.getElementById("change1").style.fontSize="30px";
+        }
+        function changeTextByClass() {
+            let c1 = document.getElementsByClassName("class1");
+            for(i=0; i<c1.length; i++) {
+                c1[i].innerHTML="변경됨";
+                c1[i].style.fontSize="30px";
+                c1[i].style.color="blue";
+            }
+        }
+        function changeTextByTag() {
+            let tag1 = document.getElementsByTagName("h5");
+            console.log(tag1);
+            for(i=0; i<tag1.length; i++) {
+                tag1[i].innerHTML="변경됨";
+                tag1[i].style.fontSize="30px";
+                tag1[i].style.color="blue";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>javascript 변수와 출력</h2>
+    <button onclick="variableConsole1()">console에 변수 출력하기1</button>
+    <button onclick="variableConsole2()">console에 변수 출력하기2</button>
+    <button onclick="variableConsole3()">console에 변수 출력하기3</button>
+    <h2>javascript 변수 선언 키워드</h2>
+    <button onclick="varExample()">var 예제</button>
+    <button onclick="letExample()">let 예제</button>
+    <button onclick="constExample()">const 예제</button>
+    <h2>tag 선택, class선택, id선택</h2>
+    <button onclick="changeTextById()">id 선택 후 change</button>
+    <!--버튼 클릭시 변경완료-->
+    <p id="change1">변경대상 id</p>
+    <button onclick="changeTextByClass()">class 선택 후 change</button>
+    <p class="class1">변경대상 class</p>
+    <p class="class1">변경대상 class</p>
+    <button onclick="changeTextByTag()">tag 선택 후 change</button>
+    <h5>변경대상 tag</h5>
+    <h5>변경대상 tag</h5>
+</body>
+</html>

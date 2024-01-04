@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js basic</title>
+    <script>
+        function showObject() {
+            //리터럴 방식 리터럴은 데이터(값) 그 자체
+            var person = {name:"lee", age:20, email:"123@naver.com"};
+            person.name = "kim";
+            person.password = "1234";
+            var str = "이름은 "+person.name+" 나이는 "+person.age+" email은 "+person.email+" password는 "+person.password+"입니다.";
+            document.getElementById("result").innerHTML = str;
+        }
+        function convertType() {
+            // 숫자클래스 : Number, 문자클래스 : String, boolean도 있다.
+            var numStr = "10";
+            var str = "문자열";
+            var output = "Number 변환 : "+Number(numStr)+"<br>"
+            +"String 변환 : "+String(str) +"<br>"
+            +"Boolean 변환 : "+Boolean(0) + "<br>";
+            document.getElementById("result").innerHTML= output;
+        }
+        function showNaN() {
+
+            var output = "10" - "문자열";
+            console.log(output);
+            console.log(typeof(output));
+            document.getElementById("result").innerHTML= output;
+            
+        }
+        function showNull() {
+            var output1; // undefined
+            var output2 = null;
+            
+            var output = "output1의 타입은 "+ typeof(output1)+" <br>"
+            +"output2의 타입은 "+ typeof(output2)+" 이다.<br>"
+            +"output1 == output2 "+ (output1 == output2)+" <br>"
+            +"output1 === output2 "+ (output1 === output2)+" 이다"
+            document.getElementById("result").innerHTML = output;
+        }
+        function showDateConversion() {
+            let today = new Date();   
+            let year = today.getFullYear(); // 년도
+            let month = today.getMonth() + 1;  // 월
+            let date = today.getDate();  // 날짜
+            let day = today.getDay();  // 요일     
+            if(day == 1) {
+                day = "월"
+            } else if (day == 2) {
+                day = "화"
+            } else if (day == 3) {
+                day = "수"
+            } else if (day == 4) {
+                day = "목"
+            } else if (day == 5) {
+                day = "금"
+            } else if (day == 6) {
+                day = "토"
+            } else {
+                day = "일"
+            }
+            var output = year+"년 "+month+"월 "+date+"일 "+day+"요일";  
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+</head>
+<body>
+    <h2>js 객체</h2>
+    <button onclick="showObject()">객체생성</button>
+    <button onclick="convertType()">형변환</button>
+    <button onclick="showNaN()">Nan 에러 발생</button>
+    <button onclick="showNull()">undifine, null</button>
+    <button onclick="showDateConversion()">날짜변환</button>
+    <p id="result"></p>
+</body>
+</html>
