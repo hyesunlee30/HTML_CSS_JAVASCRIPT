@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS_BOOTSTRAP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        async function callBackImp(id) {
+            try{
+                let response = await axios.get("https://jsonplaceholder.typicode.com/posts/"+id);
+                let data = response.data;
+                const contents = document.createElement('tbody');
+
+                contents.innerHTML+=
+                    '<tr><td>아이디</td><td>'+data.id+'</td></tr>'+
+                    '<tr><td>타이틀</td><td>'+data.title+'</td></tr>'+
+                    '<tr><td>유저아이디</td><td>'+data.userId+'</td></tr>'+
+                    '<tr><td>바디</td><td>'+data.body+'</td></tr>';
+
+
+                console.log(response);
+                document.getElementById("table1").appendChild(contents);
+                
+
+            } catch(e) {
+                console.log(e);
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <a class="navbar-brand" href="./home.html">게시판 서비스</a>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="./home">회원가입</a></li>
+            <li class="nav-item"><a class="nav-link" href="./home">글목록</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="page-header text-center"><h1>게시글 상세</h1></div>
+        <div><input type="text"><a href="./7.css_bootstrap_postregister.html"><button class="btn btn-primary">조회하기</button></a></div>
+        <div class="float-end"><a class="nav-link" href="./7.css_bootstrap_postregister.html"><button class="btn btn-primary">글쓰기</button></a></div>
+        <table class="table" id = "table1">
+            <thead>
+                <th>컬럼</th>
+                <th>내용</th>
+            </thead>
+        </table>
+    </div>
+    <script>
+        callBackImp(1);
+    </script>
+</body>
+</html>
