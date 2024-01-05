@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이력서</title>
+    <script>
+        let count = 0;
+        function add () {
+            console.log(111);
+            count +=1;
+            const p = document.createElement('p');
+            p.innerHTML= "항목"+count+" <input type='text'> <input type='button' value='삭제' onclick='remove(this)'><br>";
+            document.getElementById("line").appendChild(p);
+        }
+        const remove = (obj) => {
+            count -=1;
+            document.getElementById("line").removeChild(obj.parentNode);
+        }
+    </script>
+</head>
+<body>
+    <h2 >이력서</h2>
+    <div class="container">
+        <div>이름 : </div>
+        <div>
+            <input type="text" size="100%">
+        </div>
+        <div>
+            학력 : 
+        </div>
+        <div id="line">
+        </div>
+        <button onclick="add()">추가하기</button>
+    </div>
+    
+</body>
+</html>

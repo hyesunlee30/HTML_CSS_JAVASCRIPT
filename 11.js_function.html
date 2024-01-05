@@ -8,10 +8,61 @@
         function basicFunction() {
             alert("함수호출쓰");
         }
+        function basicFunction2() {
+            alert(makeString3())
+        }
+        function makeString1() {
+            return "hello world"
+        }
+        const makeString2 = function(){return "hello world"}
+        const makeString3 = () =>{return "hello world"}
+        const basicFunction3 = (name) =>{alert("hello "+name)}
+        const basicFunction4 = (a, b) =>{alert(a+b)}
+        const basicFunction5 = (...numbers) =>{
+            const total = numbers.reduce((a,b)=>a+b, 0);
+            alert("합계 : "+total)
+        }
+    
+        const calculator = () => {
+            const what = document.getElementById("calculator").value;
+            let a = Number(document.getElementsByClassName("values")[0].value);
+            let b = Number(document.getElementsByClassName("values")[1].value);
+            
+            if(what === "plus") {
+                document.getElementById("result").innerHTML = a+b;
+            } else if (what === "minus") {
+                document.getElementById("result").innerHTML = a-b;
+            } else if (what == "multiply") {
+                document.getElementById("result").innerHTML = a*b;
+            } else {
+                document.getElementById("result").innerHTML = a/b;
+            }
+        }
     </script>
 </head>
 <body>
     <h2>js 기본 함수 호출</h2>
-    <button onclick="basicFunction()">함수 호출</button>
+    <button onclick="basicFunction()">함수 호출1</button>
+    <button onclick="basicFunction2()">함수 호출2</button>
+    <button onclick="basicFunction3('test')">함수 호출3</button>
+    <button onclick="basicFunction4(1,2)">함수 호출4</button>
+    <button onclick="basicFunction5(10,20,30,40)">함수 호출5</button>
+
+    <h2>계산기 프로그램</h2>
+    <div>
+        <label>사칙연산선택</label>
+        <select id="calculator">
+            <option value="plus">덧셈</option>
+            <option value="minus">뺄셈</option>
+            <option value="multiply">곱셈</option>
+            <option value="divide">나늣셈</option>
+        </select>
+    </div>
+    <input type="number" class="values">
+    <input type="number" class="values">
+    <button onclick="calculator()">연산실행</button>
+    
+    <br>
+    계산한 결과값: <span id="result"></span> 
 </body>
 </html>

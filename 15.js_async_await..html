@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js ajax</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <script>
+        // async function() {
+        //     let response = await 비동기 A호출;
+        //     let response2 = await B호출(response);
+        //     let response3 = await C호출(response2)
+        // }
+        
+        async function callBackImp() {
+            try{
+                const response = await $.ajax({
+                    type: "GET",
+                    url: "https://jsonplaceholder.typicode.com/posts/1",
+                    datatype: "JSON"
+                });
+                console.log(response);
+            } catch(e) {
+                console.log(e);
+            }
+            
+            // const response2 = await $.ajax({
+            //                 method: "POST",
+            //                 url: "https://naver.com",
+            //                 datatype: "JSON",
+            //                 data: response
+            //     });
+            // const response3 = await $.ajax({
+            //             method: "POST",
+            //             url: "https://daum.com",
+            //             datatype: "JSON",
+            //             data: response2
+            // });
+            // console.log(response2);
+            // console.log(response3);
+            try{
+                const response1 = await axios.get("https://jsonplaceholder.typicode.com/posts/1");
+                console.log("response1");
+                console.log(response1.data.body);
+            } catch(e) {
+                console.log(e);
+            }
+        }
+        callBackImp();
+    </script>
+</body>
+</html>
