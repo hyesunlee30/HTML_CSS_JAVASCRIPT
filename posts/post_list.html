@@ -9,12 +9,16 @@
     <script>
         async function callBackImp() {
             try{
-                let response = await axios.get("https://jsonplaceholder.typicode.com/posts");
+                let response = await axios.get("https://jsonplaceholder.typicode.com/posts/");
+                //let response = await axios.get("http://localhost:8080/csr/json");
                 let data = response.data;
                 const contents = document.createElement('tbody');
 
                 for(i = 0; i<data.length; i++) {
-                    contents.innerHTML+='<tr id='+data[i].id+' onclick="showDetail(id)"><td>'+data[i].id+'</td><td>'+data[i].title+'</td><td>'+data[i].userId+'</td><tr>';
+                    contents.innerHTML+='<tr id='+data[i].id+' onclick="showDetail(id)"><td>'+data[i].id+'</td><td>'+data[i].title+'</td><td>'+data[i].body+'</td>'+
+                        //'<td>'+data[i].authorName+'</td>'+
+                        '<td>'+data[i].userId+'</td>'+
+                        '<tr>';
                 }
 
                 document.getElementById("table1").appendChild(contents);
@@ -26,19 +30,12 @@
         }
         function showDetail(id) {
             
-            window.location.href = 'file:///C:/Users/Playdata/Desktop/HTML_CSS_JAVASCRIPT/17.js_post_detail_axios.html?id='+id;
+            window.location.href = 'file:///C:/Users/Playdata/Desktop/HTML_CSS_JAVASCRIPT/posts/17.js_post_detail_axios.html?id='+id;
         }
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-        <a class="navbar-brand" href="./home.html">게시판 서비스</a>
-        <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="./home">회원가입</a></li>
-            <li class="nav-item"><a class="nav-link" href="./home">글목록</a></li>
-        </ul>
-    </nav>
-    
+    <div id="header"></div>
     <div class="container">
         <div class="page-header text-center"><h1>게시글 목록</h1></div>
         <div class="float-end"><a class="nav-link" href="./7.css_bootstrap_postregister.html"><button class="btn btn-primary">글쓰기</button></a></div>
@@ -46,11 +43,16 @@
             <thead>
                 <th>id</th>
                 <th>title</th>
-                <th>userId</th>
+                <th>body</th>
+                <th>authorName</th>
             </thead>
         </table>
     </div>
     <script>
+        function addHeader() {
+            document.getElementById("header").innerHTML = '<object type="text/html" data="header.html" width="100%" heigh="100%"></object>';
+        }
+        addHeader();
         callBackImp();
     </script>
 </body>
