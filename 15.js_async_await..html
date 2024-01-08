@@ -27,20 +27,29 @@
                 console.log(e);
             }
             
-            // const response2 = await $.ajax({
-            //                 method: "POST",
-            //                 url: "https://naver.com",
-            //                 datatype: "JSON",
-            //                 data: response
-            //     });
-            // const response3 = await $.ajax({
-            //             method: "POST",
-            //             url: "https://daum.com",
-            //             datatype: "JSON",
-            //             data: response2
-            // });
-            // console.log(response2);
-            // console.log(response3);
+            try{
+                const response2 = await $.ajax({
+                            method: "POST",
+                            url: "https://naver.com",
+                            datatype: "JSON",
+                            data: response
+                });
+                console.log(response2);
+            } catch(e) {
+                console.log(e);
+            }
+            try{
+                const response3 = await $.ajax({
+                        method: "POST",
+                        url: "https://daum.com",
+                        datatype: "JSON",
+                        data: response2
+                });
+                console.log(response3);
+            } catch(e) {
+                console.log(e);
+            }
+
             try{
                 const response1 = await axios.get("https://jsonplaceholder.typicode.com/posts/1");
                 console.log("response1");

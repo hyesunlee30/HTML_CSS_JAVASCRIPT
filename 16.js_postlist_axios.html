@@ -14,7 +14,7 @@
                 const contents = document.createElement('tbody');
 
                 for(i = 0; i<data.length; i++) {
-                    contents.innerHTML+='<tr id='+data[i].id+'><td>'+data[i].id+'</td><td>'+data[i].title+'</td><td>'+data[i].userId+'</td><tr>';
+                    contents.innerHTML+='<tr id='+data[i].id+' onclick="showDetail(id)"><td>'+data[i].id+'</td><td>'+data[i].title+'</td><td>'+data[i].userId+'</td><tr>';
                 }
 
                 document.getElementById("table1").appendChild(contents);
@@ -23,6 +23,10 @@
             } catch(e) {
                 console.log(e);
             }
+        }
+        function showDetail(id) {
+            
+            window.location.href = 'file:///C:/Users/Playdata/Desktop/HTML_CSS_JAVASCRIPT/17.js_post_detail_axios.html?id='+id;
         }
     </script>
 </head>
