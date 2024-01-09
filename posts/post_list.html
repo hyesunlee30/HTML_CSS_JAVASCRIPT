@@ -9,15 +9,15 @@
     <script>
         async function callBackImp() {
             try{
-                let response = await axios.get("https://jsonplaceholder.typicode.com/posts/");
-                //let response = await axios.get("http://localhost:8080/csr/json");
+                //let response = await axios.get("https://jsonplaceholder.typicode.com/posts/");
+                let response = await axios.get("http://15.164.226.151:8080/csr/json");
                 let data = response.data;
                 const contents = document.createElement('tbody');
 
                 for(i = 0; i<data.length; i++) {
                     contents.innerHTML+='<tr id='+data[i].id+' onclick="showDetail(id)"><td>'+data[i].id+'</td><td>'+data[i].title+'</td><td>'+data[i].body+'</td>'+
-                        //'<td>'+data[i].authorName+'</td>'+
-                        '<td>'+data[i].userId+'</td>'+
+                        '<td>'+data[i].authorName+'</td>'+
+                        //'<td>'+data[i].userId+'</td>'+
                         '<tr>';
                 }
 
@@ -30,7 +30,7 @@
         }
         function showDetail(id) {
             
-            window.location.href = 'file:///C:/Users/Playdata/Desktop/HTML_CSS_JAVASCRIPT/posts/17.js_post_detail_axios.html?id='+id;
+            window.location.href = 'http://encoredata-hyesun.s3.ap-northeast-2.amazonaws.com/post_detail.html?id='+id;
         }
     </script>
 </head>
